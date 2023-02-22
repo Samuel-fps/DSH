@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: d053ceb3a6e8afe4cbfe722d3e1e9efe
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Basque Smile
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: b0e81d59b32f83f4db0cbce077b77040, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
