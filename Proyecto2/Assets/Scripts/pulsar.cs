@@ -12,7 +12,7 @@ public class pulsar : MonoBehaviour
     public Text txtNumeros;
 
     private bool contar;
-    private int numero;
+    private int numero = 3;
 
     // Start is called before the first frame update
     void Start()
