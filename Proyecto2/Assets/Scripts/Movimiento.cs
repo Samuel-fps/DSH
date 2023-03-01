@@ -75,9 +75,9 @@ public class Movimiento : MonoBehaviour
             valZ += 6.0f;
         GameObject suelo = Instantiate(prefabSuelo, new Vector3(valX, 0.0f, valZ), Quaternion.identity) as GameObject;
         ran = Random.Range(0f, 1f);
-        if(ran < 0.5f)
-            Debug.Log("diamante");
-            //GameObject moneda = Instantiate(prefabMoneda, new Vector3(valX, 1f, valZ), Quaternion.identity) as GameObject;
+        if(ran < 0.5f){
+            GameObject moneda = Instantiate(prefabMoneda, new Vector3(valX, 1f, valZ), Quaternion.identity) as GameObject;
+        }
     }
 
     private void OnTriggerEnter(Collider other){
