@@ -1,17 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Movimiento : MonoBehaviour
 {
     public Camera camara;
     public int velocidad;
     public GameObject prefabSuelo;
+    public GameObject prefabMoneda;
+    public Text txtPuntos;
 
+    public AudioSource asFuente;
+    public AudioClip acSonido;
+    public float fVolumen = 1f;
+
+    // PRIVADAS
     private Vector3 offset;
     private float valX, valZ;
     private Vector3 dirActual;
     private Rigidbody rb;
+    private int iPuntos = 0;
+    
 
 
     // Start is called before the first frame update
@@ -65,7 +75,16 @@ public class Movimiento : MonoBehaviour
             valZ += 6.0f;
         GameObject suelo = Instantiate(prefabSuelo, new Vector3(valX, 0.0f, valZ), Quaternion.identity) as GameObject;
         ran = Random.Range(0f, 1f);
-        if(ran < 0.3f)
-            Debug.Log("Creo objeto");
+        if(ran < 0.5f)
+            Debug.Log("diamante");
+            //GameObject moneda = Instantiate(prefabMoneda, new Vector3(valX, 1f, valZ), Quaternion.identity) as GameObject;
+    }
+
+    private void OnTriggerEnter(Collider other){
+        Debug.Log("He chocado con un diamante");
+        asFuente.PlayOneShot(acSonido, fVolumen);
+        Destroy(other.gameObject);
+        iPuntos++;
+        txtPuntos.text = "Puntos " + iPuntos;
     }
 }

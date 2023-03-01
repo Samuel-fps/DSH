@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class diamante : MonoBehaviour
+public class recompensa : MonoBehaviour
 {
     public float velocidad;
 
