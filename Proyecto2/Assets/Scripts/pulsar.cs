@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class pulsar : MonoBehaviour
 {
@@ -46,8 +47,10 @@ public class pulsar : MonoBehaviour
             contar = false;
             numero--;
         }
-        else{
+        else if(numero <= 0){
             txtNumeros.text = "GO";
+            StartCoroutine(Esperar());
+            SceneManager.LoadScene("Escena2", LoadSceneMode.Single);
         }
     }
 

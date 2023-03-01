@@ -54,10 +54,10 @@ public class Movimiento : MonoBehaviour
     }
 
     IEnumerator CrearSuelo(Collision col){
-        //yield return new WaitForSeconds(0.5f);
-        //col.rigidbody.isKinematic = false;
+        yield return new WaitForSeconds(0.5f);
+        col.rigidbody.isKinematic = false;
         Debug.Log("Sale");
-        //col.rigidbody.useGravity = true;
+        col.rigidbody.useGravity = true;
         yield return new WaitForSeconds(0.5f);
         Destroy(col.gameObject);
         float ran = Random.Range(0f, 1f);
