@@ -9,8 +9,7 @@ public class Movimiento : MonoBehaviour
     public GameObject prefabSuelo;
 
     private Vector3 offset;
-    private float valX;
-    private float valZ;
+    private float valX, valZ;
     private Vector3 dirActual;
     private Rigidbody rb;
 
@@ -56,7 +55,6 @@ public class Movimiento : MonoBehaviour
     IEnumerator CrearSuelo(Collision col){
         yield return new WaitForSeconds(0.5f);
         col.rigidbody.isKinematic = false;
-        Debug.Log("Sale");
         col.rigidbody.useGravity = true;
         yield return new WaitForSeconds(0.5f);
         Destroy(col.gameObject);
@@ -65,6 +63,9 @@ public class Movimiento : MonoBehaviour
             valX += 6.0f;
         else
             valZ += 6.0f;
-        GameObject elSuelo = Instantiate(prefabSuelo, new Vector3(valX, 0.0f, valZ), Quaternion.identity) as GameObject;
+        GameObject suelo = Instantiate(prefabSuelo, new Vector3(valX, 0.0f, valZ), Quaternion.identity) as GameObject;
+        ran = Random.Range(0f, 1f);
+        if(ran < 0.3f)
+            Debug.Log("Creo objeto");
     }
 }
