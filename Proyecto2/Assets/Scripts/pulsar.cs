@@ -10,10 +10,9 @@ public class pulsar : MonoBehaviour
     public Button btn;
     public Image img;
     public Sprite[] spNumeros;
-    public Text txtNumeros;
 
     private bool contar;
-    private int numero = 3;
+    private int numero;
 
     // Start is called before the first frame update
     void Start()
@@ -21,9 +20,11 @@ public class pulsar : MonoBehaviour
         //btn = gameObject.FindAnyObjectByType<Button>();
         //btn =GameOject.FindByTag("btnStart").GetCmponent<Button>();
         btn.onClick.AddListener(Pulsado);
+        var tempColor = img.color;
+        tempColor.a = 1f;
+        img.color = tempColor;
         contar = false;
-        numero = 2;
-        txtNumeros.text = "" + numero;
+        numero = 3;
     }
 
     void Pulsado(){
@@ -39,23 +40,23 @@ public class pulsar : MonoBehaviour
             switch (numero)
             {
                 case 0: Debug.Log("Terminado"); break;
-                case 1: img.sprite = spNumeros[0]; txtNumeros.text = "1"; break;
-                case 2: img.sprite = spNumeros[1]; txtNumeros.text = "2"; break;
-                case 3: img.sprite = spNumeros[2]; txtNumeros.text = "3"; break;
+                case 1: img.sprite = spNumeros[0]; break;
+                case 2: img.sprite = spNumeros[1]; break;
+                case 3: img.sprite = spNumeros[2]; break;
+                case 4: img.sprite = spNumeros[3]; break;
             }
-            StartCoroutine(Esperar());
+            StartCoroutine(Esperar(1));
             contar = false;
             numero--;
         }
-        else if(numero <= 0){
-            txtNumeros.text = "GO";
-            StartCoroutine(Esperar());
+        else if(numero < 0){
+            StartCoroutine(Esperar(2));
             SceneManager.LoadScene("Escena2", LoadSceneMode.Single);
         }
     }
 
-    IEnumerator Esperar(){
-        yield return new WaitForSeconds(1);
+    IEnumerator Esperar(int sec){
+        yield return new WaitForSeconds(sec);
         contar = true;
     }
 }
